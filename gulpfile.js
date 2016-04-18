@@ -22,7 +22,7 @@ gulp.task('nsp', cb => {
 });
 
 gulp.task('pre-test', () => {
-  return gulp.src('lib\**\*.js')
+  return gulp.src('lib/**/*.js')
     .pipe($.excludeGitignore())
     .pipe($.istanbul({
       includeUntested: true,
@@ -43,7 +43,7 @@ gulp.task('test', ['pre-test'], () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(['lib\**\*.js', 'test/**'], ['test']);
+  gulp.watch(['lib/**/*.js', 'test/**'], ['test']);
 });
 
 gulp.task('coveralls', ['test'], () => {
@@ -56,7 +56,7 @@ gulp.task('coveralls', ['test'], () => {
 });
 
 gulp.task('babel', ['clean'], () => {
-  return gulp.src('lib\**\*.js')
+  return gulp.src('lib/**/*.js')
     .pipe($.babel())
     .pipe(gulp.dest('dist'));
 });
@@ -66,4 +66,4 @@ gulp.task('clean', () => {
 });
 
 gulp.task('prepublish', ['nsp', 'babel']);
-gulp.task('default', ['static', 'test', 'coveralls']);
+gulp.task('default', ['prepublish', 'static', 'test', 'coveralls']);
