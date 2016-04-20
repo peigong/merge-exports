@@ -1,15 +1,9 @@
-const path = require('path');
-const gulp = require('gulp');
-const $ = require('gulp-load-plugins')();
+'use strict';
+var path = require('path');
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
 
-const del = require('del');
-const isparta = require('isparta');
-
-// Initialize the babel transpiler so ES2015 files gets compiled
-// when they're loaded
-require('babel-core/register');
-
-gulp.task('static', () => {
+gulp.task('static', function () {
   return gulp.src('**/*.js')
     .pipe($.excludeGitignore())
     .pipe($.eslint())
@@ -17,36 +11,39 @@ gulp.task('static', () => {
     .pipe($.eslint.failAfterError());
 });
 
-gulp.task('nsp', cb => {
+gulp.task('nsp', function (cb) {
   $.nsp({package: path.resolve('package.json')}, cb);
 });
 
-gulp.task('pre-test', () => {
+gulp.task('pre-test', function () {
   return gulp.src('lib/**/*.js')
     .pipe($.excludeGitignore())
     .pipe($.istanbul({
-      includeUntested: true,
-      instrumenter: isparta.Instrumenter
+      includeUntested: true
     }))
     .pipe($.istanbul.hookRequire());
 });
 
-gulp.task('test', ['pre-test'], () => {
+gulp.task('test', ['pre-test'], function (cb) {
+  var mochaErr;
+
   gulp.src('test/**/*.js')
     .pipe($.plumber())
     .pipe($.mocha({reporter: 'spec'}))
-    .on('error', () => {
+    .on('error', function (err) {
+      mochaErr = err;
     })
     .pipe($.istanbul.writeReports())
-    .on('end', () => {
+    .on('end', function () {
+      cb(mochaErr);
     });
 });
 
-gulp.task('watch', () => {
+gulp.task('watch', function () {
   gulp.watch(['lib/**/*.js', 'test/**'], ['test']);
 });
 
-gulp.task('coveralls', ['test'], () => {
+gulp.task('coveralls', ['test'], function () {
   if (!process.env.CI) {
     return;
   }
@@ -55,15 +52,5 @@ gulp.task('coveralls', ['test'], () => {
     .pipe($.coveralls());
 });
 
-gulp.task('babel', ['clean'], () => {
-  return gulp.src('lib/**/*.js')
-    .pipe($.babel())
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('clean', () => {
-  return del('dist');
-});
-
-gulp.task('prepublish', ['nsp', 'babel']);
-gulp.task('default', ['prepublish', 'static', 'test', 'coveralls']);
+gulp.task('prepublish', ['nsp']);
+gulp.task('default', ['static', 'test', 'coveralls']);
