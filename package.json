@@ -1,47 +1,42 @@
 {
-  "name": "merge-exports",
-  "version": "0.0.1",
-  "description": "合并输出当前目录下NODE文件的module.exports",
-  "homepage": "https://github.com/peigong/merge-exports",
-  "author": {
-    "name": "周培公",
-    "email": "peigong@foxmail.com",
-    "url": "http://www.peigong.net"
-  },
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index.js",
-  "keywords": [
-    "merge exports",
-    "merge module",
-    "合并模块",
-    "合并输出"
-  ],
-  "devDependencies": {
-    "eslint": "^2.1.0",
-    "eslint-config-xo-space": "^0.10.0",
-    "gulp": "^3.9.0",
-    "gulp-load-plugins": "^0.10.0",
-    "gulp-eslint": "^2.0.0",
-    "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-line-ending-corrector": "^1.0.1",
-    "gulp-istanbul": "^0.10.3",
-    "gulp-mocha": "^2.0.0",
-    "gulp-plumber": "^1.0.0",
-    "gulp-nsp": "^2.1.0",
-    "gulp-coveralls": "^0.1.0"
-  },
-  "eslintConfig": {
-    "extends": "xo-space",
-    "env": {
-      "mocha": true
-    }
-  },
-  "repository": "peigong/merge-exports",
-  "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
-  },
-  "license": "MIT"
+    "name": "merge-exports",
+    "version": "0.0.1",
+    "description": "合并输出当前目录下NODE文件的module.exports",
+    "homepage": "https://github.com/peigong/merge-exports",
+    "author": {
+        "name": "周培公",
+        "email": "peigong@foxmail.com",
+        "url": "http://www.peigong.net"
+    },
+    "files": ["lib"],
+    "main": "lib/index.js",
+    "keywords": ["merge exports", "merge module", "合并模块", "合并输出"],
+    "devDependencies": {
+        "eslint": "^2.1.0",
+        "eslint-config-xo-space": "^0.10.0",
+        "gulp": "^3.9.0",
+        "gulp-load-plugins": "^0.10.0",
+        "gulp-eslint": "^2.0.0",
+        "gulp-exclude-gitignore": "^1.0.0",
+        "gulp-line-ending-corrector": "^1.0.1",
+        "gulp-istanbul": "^0.10.3",
+        "gulp-mocha": "^2.0.0",
+        "gulp-plumber": "^1.0.0",
+        "gulp-coveralls": "^0.1.0",
+        "mockery": "^1.6.2"
+    },
+    "eslintConfig": {
+        "extends": "xo-space",
+        "rules": {
+            "indent": ["error", 4]
+        },
+        "env": {
+            "mocha": true
+        }
+    },
+    "repository": "peigong/merge-exports",
+    "scripts": {
+        "test": "gulp"
+    },
+    "license": "MIT"
 }
