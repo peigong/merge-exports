@@ -1,4 +1,4 @@
-# merge-exports [![Build Status][https://travis-ci.org/peigong/merge-exports.svg?branch=master]][https://travis-ci.org/peigong/merge-exports] [![Dependency Status][https://david-dm.org/peigong/merge-exports.svg?theme=shields.io]][https://david-dm.org/peigong/merge-exports] [![Coverage percentage][https://coveralls.io/repos/peigong/merge-exports/badge.svg]][https://coveralls.io/r/peigong/merge-exports] #
+# merge-exports [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] #
 
 > 合并输出当前目录下NODE文件的`module.exports`
 
@@ -21,7 +21,6 @@
 ## License
 
 MIT © [周培公](http://www.peigong.net)
-
 
 [npm-image]: https://badge.fury.io/js/merge-exports.svg
 [npm-url]: https://npmjs.org/package/merge-exports
