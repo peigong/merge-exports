@@ -1,4 +1,4 @@
-# merge-exports [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url] #
+# merge-exports [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/peigong/merge-exports/badge.svg?branch=master)](https://coveralls.io/github/peigong/merge-exports?branch=master) #
 
 > 合并输出当前目录下NODE文件的`module.exports`
 
