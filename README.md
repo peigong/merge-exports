@@ -1,19 +1,23 @@
-# merge-exports [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> 合并输出当前目录下NODE文件的module.exports
+# merge-exports [![Build Status][https://travis-ci.org/peigong/merge-exports.svg?branch=master]][https://travis-ci.org/peigong/merge-exports] [![Dependency Status][https://david-dm.org/peigong/merge-exports.svg?theme=shields.io]][https://david-dm.org/peigong/merge-exports] [![Coverage percentage][https://coveralls.io/repos/peigong/merge-exports/badge.svg]][https://coveralls.io/r/peigong/merge-exports] #
 
-## Installation
+> 合并输出当前目录下NODE文件的`module.exports`
 
-```sh
-$ npm install --save merge-exports
-```
+## 应用场景 ##
 
-## Usage
+`index.js`只是用于收集当前目录下各个`.js`文件的`module.exports`，便于统一对外输出。
 
-```js
-var mergeExports = require('merge-exports');
+## 使用方法 ##
 
-mergeExports('Rainbow');
-```
+将本项目`lib`下的`index.js`，复制到需要收集各`.js`文件`module.exports`的目录。
+
+## 简化的局限 ##
+
+为了简化问题和代码实现，有如下使用局限：
+
+- 只支持`.js`后缀的代码文件。
+- 只支持`module.exports`输出键值对对象的情况。
+- 只支持当前目录下的一级文件，不支持子目录。
+
 ## License
 
 MIT © [周培公](http://www.peigong.net)
