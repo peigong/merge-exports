@@ -28,6 +28,7 @@
     "eslintConfig": {
         "extends": "xo-space",
         "rules": {
+            "linebreak-style": "off",
             "indent": ["error", 4]
         },
         "env": {
