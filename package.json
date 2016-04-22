@@ -29,6 +29,11 @@
         "extends": "xo-space",
         "rules": {
             "linebreak-style": "off",
+            "space-before-function-paren": "off",
+            "space-before-blocks": "off",
+            "spaced-comment": "off",
+            "keyword-spacing": "off",
+            "guard-for-in": "off",
             "indent": ["error", 4]
         },
         "env": {
