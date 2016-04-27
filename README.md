@@ -4,7 +4,7 @@
 
 ## 应用场景 ##
 
-`index.js`只是用于收集当前目录下各个`.js`文件的`module.exports`，便于统一对外输出。
+`index.js`用于收集当前目录下各个`.js`文件的`module.exports`，便于统一对外输出。
 
 ## 使用方法 ##
 
